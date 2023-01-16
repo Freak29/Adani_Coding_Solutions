@@ -1,0 +1,50 @@
+Ques-1 Write a function to create a 2-D List/Array with random integers between 0 to 100. This function should take two arguments - numberOfRows and numberOfColumns and return 2D list.
+
+Ans-1 
+
+int** create2DArray(int nORows, int nOColumns) 
+{
+    int** array = new int*[nORows];
+    for(int i = 0; i < nORows; i++) 
+{
+        array[i] = new int[nOColumns];
+    }
+    srand(time(0));
+    for(int i = 0; i < nORows; i++) 
+{
+        for(int j = 0; j < nOColumns; j++)
+ {
+            array[i][j] = rand() % 100;
+        }
+    }
+    return array;
+}
+
+
+
+
+Ques-2 Write a function to sort the 2-D list based on column index keeping the rows intact. This function should take two arguments - 2D list created above and column Index and return sorted 2D list.
+
+Ans-2
+
+int** sort2DArray(int** array, int nORows, int nOColumns, int columnIndex) {
+    for (int i = 0; i < nORows; i++)
+ {
+    for (int j = i + 1; j < nORows; j++) 
+{
+            if (array[i][columnIndex] > array[j][columnIndex])
+ 
+{
+                for (int k = 0; k < nOColumns; k++) 
+{
+                    int temp = array[i][k];
+                    array[i][k] = array[j][k];
+                    array[j][k] = temp;
+     }
+     }
+     }
+   }
+    return array;
+}
+
+
